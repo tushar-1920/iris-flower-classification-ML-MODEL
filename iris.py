@@ -1,0 +1,22 @@
+import pandas as pd
+from sklearn.naive_bayes import GaussianNB
+data = pd.read_excel('iris-train.xlsx')
+# data.head()
+x = data.iloc[:,:-1]
+y = data.iloc[:,-1]
+model = GaussianNB()
+
+model.fit(x.values,y.values)
+predictions = model.predict([[5.4,3,4.5,1.5]])
+predictions
+datatest =  pd.read_excel('iris-train.xlsx')
+x_test = datatest.iloc[:,:-1]
+predictions = model.predict(x_test.values)
+predictions
+y_test = datatest.iloc[:,-1]
+actual = y_test.values
+count = 0
+for i in range(0 , len(actual)):
+    if actual[i] == predictions[i]:
+        count = count + 1
+print((count * 100)/len(actual))
