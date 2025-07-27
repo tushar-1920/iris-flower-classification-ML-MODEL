@@ -12,6 +12,8 @@ The dataset used is a version of the Iris dataset in Excel format (`iris-train.x
 - Petal width (cm)
 - Species (target label)
 
+### The above data of IRIS i had taken from the  UCI MACHINE LEARNING REPOSITORY
+
 ## 🧠 Model
 
 The model is trained using the **Gaussian Naive Bayes** algorithm from the `sklearn.naive_bayes` module.
@@ -19,3 +21,4 @@ The model is trained using the **Gaussian Naive Bayes** algorithm from the `skle
 ### Sample Prediction:
 ```python
 model.predict([[5.4, 3.0, 4.5, 1.5]])
+
