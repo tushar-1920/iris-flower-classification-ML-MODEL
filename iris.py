@@ -1,15 +1,36 @@
+# this code is  only to make the predictions
 import pandas as pd
-from sklearn.naive_bayes import GaussianNB
+from sklearn.ensemble import RandomForestClassifier
 data = pd.read_excel('iris-train.xlsx')
-# data.head()
+data.head()
 x = data.iloc[:,:-1]
+x
 y = data.iloc[:,-1]
-model = GaussianNB()
-
+y
+model = RandomForestClassifier()
 model.fit(x.values,y.values)
-predictions = model.predict([[5.4,3,4.5,1.5]])
+prediction = model.predict([[5.2,2.7,3.9,1.4]])
+prediction
+datatest = pd.read_excel('iris-test.xlsx')
+x_test = datatest.iloc[:,:-1]
+predictions = model.predict(x_test.values)
 predictions
-datatest =  pd.read_excel('iris-train.xlsx')
+
+
+# For the accuracy of the model try different models to check the accuracy
+import pandas as pd
+from sklearn.ensemble import RandomForestClassifier
+data = pd.read_excel('iris-train.xlsx')
+data.head()
+x = data.iloc[:,:-1]
+x
+y = data.iloc[:,-1]
+y
+model = RandomForestClassifier()
+model.fit(x.values,y.values)
+prediction = model.predict([[5.2,2.7,3.9,1.4]])
+prediction
+datatest = pd.read_excel('iris-test.xlsx')
 x_test = datatest.iloc[:,:-1]
 predictions = model.predict(x_test.values)
 predictions
